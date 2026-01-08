@@ -31,6 +31,30 @@ Develop Auth API              4.0
 
 ## Setup (Google Apps Script)
 
+### 0) Get a Gemini API key (Google AI Studio)
+- Open Google AI Studio and create an API key.
+- Keep the key secret (do not commit it to this repository).
+
+Notes:
+- The UI may change over time, but you are looking for an "API keys" page and a "Create API key" action.
+- You can usually find it via: https://aistudio.google.com/app/apikey
+
+### 0.1) Save the API key in Apps Script (Script Properties)
+This repository expects the key to be available as a Script Property named `GEMINI_API_KEY`.
+
+Steps:
+- Open your Google Sheet.
+- Go to Extensions -> Apps Script.
+- In Apps Script, open Project Settings.
+- Under Script Properties, click Add script property.
+- Set:
+  - Property: `GEMINI_API_KEY`
+  - Value: your Gemini API key (paste it as-is)
+
+Notes:
+- Do not wrap the key in quotes.
+- Do not hardcode the key in `apps-script/GENERATE_ESTIMATION.gs`.
+
 ### 1) Add the script
 - Open your Google Sheet
 - Extensions → Apps Script

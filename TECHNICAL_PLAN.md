@@ -83,6 +83,14 @@ The following function has been implemented:
 ### Script Properties (Secrets and Config)
 - `GEMINI_API_KEY` (required)
 
+How to obtain:
+- Create an API key in Google AI Studio (Gemini API).
+- Typical link: https://aistudio.google.com/app/apikey
+
+How to configure in Apps Script:
+- Extensions -> Apps Script -> Project Settings -> Script Properties
+- Add a property named `GEMINI_API_KEY` with the API key as its value
+
 Note: Model is hardcoded as `gemini-2.5-flash` in the source. To change, edit the `modelName` constant.
 
 ### Prompt Contract

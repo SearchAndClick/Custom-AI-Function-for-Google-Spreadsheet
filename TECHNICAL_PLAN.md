@@ -107,7 +107,7 @@ The current implementation returns a 2D array that spills into the sheet:
 - Each row is `[Task Description, Estimated Hours]`
 - Task descriptions are plain text (no bullet prefix)
 - Hours are numeric values
-- The array spills down starting from the cell containing the formula (e.g., D2:E...)
+- The array spills down starting from the cell containing the formula (e.g., D3:E...)
 
 ## AI Integration
 

@@ -67,10 +67,10 @@ The function uses `UrlFetchApp`, so Google will ask for authorization.
 - Accept the permission prompt
 
 ## Usage
-In **D2** (Task List column), enter:
+Assuming row 2 is the header row, in **D3** (Task List column), enter:
 
 ```
-=GENERATE_ESTIMATION(A2,B2,C2)
+=GENERATE_ESTIMATION(A3,B3,C3)
 ```
 
 Notes:

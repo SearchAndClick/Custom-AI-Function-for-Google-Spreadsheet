@@ -73,6 +73,83 @@
 3. **If architecture changed**: Reflect scope/architecture changes in `TECHNICAL_PLAN.md`.
 4. **If timeline affected**: Update `ROADMAP.md` if milestone timing or scope shifts.
 
+## Git Conventions (Conventional Commits)
+
+### Goals
+- Keep commit history readable for humans.
+- Enable future automation (changelog, versioning) without reformatting history.
+- Keep rules simple and consistent over time.
+
+### Commit Message Format (REQUIRED)
+Use the Conventional Commits 1.0.0 structure:
+
+`<type>[optional scope][optional !]: <description>`
+
+`[optional body]`
+
+`[optional footer(s)]`
+
+Rules:
+- The header line MUST have a type, a colon, and a single space after the colon.
+- The description MUST be imperative present tense ("add", "fix", "update"), SHOULD start with a lowercase letter, and MUST NOT end with a period.
+- Separate header/body/footer with a blank line.
+- Use `!` immediately before `:` to flag a breaking change.
+- For breaking changes, add a footer starting with `BREAKING CHANGE: ` when the header is not sufficiently descriptive.
+
+### Allowed Types (Preferred Set)
+Use these types consistently (others MAY be used only when clearly needed):
+- `feat`: user-visible feature or capability
+- `fix`: bug fix
+- `docs`: documentation-only change
+- `refactor`: code change that does not change behavior
+- `perf`: performance improvement
+- `test`: add or correct tests
+- `build`: build tooling, dependencies, versions
+- `ci`: continuous integration changes
+- `chore`: maintenance tasks (repo hygiene, non-feature work)
+- `revert`: revert a previous commit
+
+Type selection checklist (use the first match):
+1. Bug fix -> `fix`
+2. New or changed behavior/capability -> `feat`
+3. Performance-focused improvement -> `perf`
+4. Restructure without behavior change -> `refactor`
+5. Docs only -> `docs`
+6. Tests only -> `test`
+7. Build/dependency/tooling -> `build`
+8. CI workflow/pipeline -> `ci`
+9. Everything else -> `chore`
+
+### Scopes (Optional)
+Scope is OPTIONAL but recommended when it adds clarity. Use short, stable nouns that match the repo structure, for example:
+- `apps-script`
+- `docs`
+- `repo`
+- `tooling`
+
+Do NOT use issue identifiers as scope.
+
+### Examples
+- `feat(apps-script): generate task table for hearing notes`
+- `fix(apps-script): handle code-fenced JSON in Gemini responses`
+- `docs: clarify Script Properties setup`
+- `chore(repo): update .gitignore`
+- `feat(apps-script)!: change output schema to include confidence`
+
+### Reverts
+- Prefer `git revert` for public history.
+- Use `revert: <original subject>` and include a footer referencing the reverted commit(s), e.g. `Refs: <sha>`.
+
+### Branching and History Policy
+- Default branch is `main`.
+- Prefer working on short-lived branches named like `<type>/<short-kebab-description>`.
+- Keep `main` in a releasable state; avoid "WIP" commits on `main`.
+- Before pushing, you MAY use interactive rebase to clean up local commits.
+- After pushing to a shared remote, avoid history rewrites. Do NOT force-push `main` unless explicitly requested.
+
+### "Documentation Discipline" Alignment
+- If a commit changes code or logic, ensure the required documentation updates described above are done in the same change set (or immediately following, with a dedicated `docs:` commit).
+
 ## Additional Guidelines
 - Keep all markdown files in ASCII and preserve their existing structure.
 - Ensure every markdown document is written entirely in English.

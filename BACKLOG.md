@@ -28,3 +28,4 @@
 - 2026-01-08 - API key moved to Script Properties; response parsing hardened; typo fixed; model set to `gemini-2.5-flash`.
 - 2026-01-08 - Implemented caching + de-duplication lock + retry logic to reduce Gemini calls and handle transient failures.
 - 2026-01-08 - Confirmed output spills as rows `[Task, Hours]` to fill Task List and Man Hour Estimation columns.
+- 2026-01-08 - Updated prompting to merge sequential micro-steps into single <= 1 hour tasks for cleaner task lists.

@@ -88,6 +88,7 @@ Note: Model is hardcoded as `gemini-2.5-flash` in the source. To change, edit th
 ### Prompt Contract
 - Role: "Senior Technical Project Manager & Solutions Architect"
 - Strict output contract: raw JSON array only (no markdown fences, no commentary)
+- Granularity rule: do not output sequential micro-steps as separate tasks; merge consecutive small setup steps into one task when a single person can complete them in <= 1 hour.
 
 ### Known Gaps / Risks
 - Custom function constraints: external API calls in custom functions may require explicit authorization and can be fragile; document operational expectations.

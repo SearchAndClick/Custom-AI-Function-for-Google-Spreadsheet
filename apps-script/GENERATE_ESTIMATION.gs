@@ -45,8 +45,13 @@ function GENERATE_ESTIMATION(inputData, outputData, remarks) {
     - Remarks: "${remarks}"
 
     Task:
-    Analyze requirements deeply. Break down work into a granular, sequential technical task list.
+    Analyze requirements deeply. Break down work into a sequential, implementation-oriented technical task list.
     Estimate realistic man-hours for a mid-level developer.
+
+    Granularity rule (IMPORTANT):
+    - Do NOT output micro-steps as separate tasks (e.g., "init repo", "setup virtual environment", "get API key") when they are small and sequential.
+    - Merge consecutive small setup steps into ONE task if a single person can complete them in <= 1 hour.
+    - Prefer tasks that are meaningful work chunks (typically ~0.5 to 4.0 hours each). If a task would be much smaller, merge it into an adjacent task.
 
     STRICT OUTPUT FORMAT (JSON Array of Arrays ONLY):
     - Example: [["Setup PostgreSQL Schema", 2.5], ["Develop Auth API", 4.0]]

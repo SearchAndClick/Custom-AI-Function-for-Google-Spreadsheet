@@ -32,3 +32,6 @@
   - Updated TECHNICAL_PLAN: Known Gaps, Function Output Formats, Rate Limiting/Caching, and Proposed Functions sections now match actual implementation.
   - Updated BACKLOG: removed items already completed from Upcoming.
   - Updated ROADMAP: Phase 1 now reflects single `GENERATE_ESTIMATION` function with [DONE] markers.
+- Refined the Gemini prompt granularity:
+  - Merges sequential micro-steps into a single task when the combined work is <= 1 hour.
+  - Keeps output actionable while reducing noisy setup-level task rows.

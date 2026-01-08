@@ -64,6 +64,7 @@ The prompt requests a strict **JSON array of arrays**:
 - Example: `[["Setup PostgreSQL Schema", 2.5], ["Develop Auth API", 4.0]]`
 - Each item MUST be `[task(string), hours(number)]`
 - Task must be plain text (no bullet prefix, no numbering)
+- Granularity: prefer meaningful chunks; merge sequential micro-steps (e.g., init repo + venv + API key) into a single task when the combined work is <= 1 hour.
 
 ## Reliability and Cost Controls
 Implemented in the script:

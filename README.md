@@ -77,6 +77,11 @@ Notes:
 - Ensure the spill range below/right of the formula cell (D:E) is empty, otherwise you may see `#REF!`.
 - If `remarks` is empty, the script uses a default: `Tidak ada catatan khusus`.
 
+## Example Spreadsheet
+Public example (function working in a real sheet):
+
+https://docs.google.com/spreadsheets/d/1X0av4T4_7plCuLc2HahYaZ46q7SQcvZj3GkcYbR7v8I/edit?usp=sharing
+
 ## Prompt Contract
 The prompt requests a strict **JSON array of arrays**:
 

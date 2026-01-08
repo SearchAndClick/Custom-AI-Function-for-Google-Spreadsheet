@@ -1,0 +1,34 @@
+# Dev Log
+
+## 2026-01-08
+- Initialized a new Git repository in the workspace.
+- Reviewed `Project.xlsx` to capture the initial scope:
+  - Hearing notes captured as Input/Output/Remarks.
+  - AI transforms hearing notes into a Task List and Man Hour Estimation.
+  - Added placeholders for FS (competitor analysis, profitability).
+- Created baseline documentation: TECHNICAL_PLAN.md, ROADMAP.md, BACKLOG.md, DEV_LOG.md.
+- Noted an initial Apps Script custom function implementation in the Google Sheets extension:
+  - Function: `GENERATE_ESTIMATION(inputData, outputData, remarks)`
+  - Provider: Gemini API via `generateContent`
+  - Output contract: JSON array parsed into a 2D array
+  - Gaps to address next: API key in Script Properties, model selection consistency, stronger response parsing, caching/rate limiting.
+- Added a hardened sample Apps Script implementation into the repository:
+  - File: `apps-script/GENERATE_ESTIMATION.gs`
+  - Changes: reads `GEMINI_API_KEY` from Script Properties, adds robust response checks, validates JSON array-of-arrays output.
+- Reviewed and finalized code:
+  - Fixed typo in error message ("AI response is not a valid JSON array").
+  - Model hardcoded to `gemini-2.5-flash`; removed GEMINI_MODEL property.
+  - Updated TECHNICAL_PLAN and BACKLOG to reflect current state.
+- Confirmed the target Google Sheet layout matches Project.xlsx:
+  - Hearing section includes Input/Output/Remarks.
+  - AI fills Task List and Man Hour Estimation columns.
+- Implemented reliability and cost controls in `GENERATE_ESTIMATION`:
+  - Script cache keyed by SHA-256 of inputs to avoid repeated Gemini calls.
+  - Script lock to de-duplicate concurrent recalculations.
+  - Retry logic for transient HTTP failures (429/5xx).
+- Confirmed output format aligns with Google Sheets spill behavior:
+  - `GENERATE_ESTIMATION` returns rows of `[Task, Hours]` so each task fills one cell in the Task List column and hours fill the adjacent Man Hour Estimation column.
+- Performed full documentation review and sync:
+  - Updated TECHNICAL_PLAN: Known Gaps, Function Output Formats, Rate Limiting/Caching, and Proposed Functions sections now match actual implementation.
+  - Updated BACKLOG: removed items already completed from Upcoming.
+  - Updated ROADMAP: Phase 1 now reflects single `GENERATE_ESTIMATION` function with [DONE] markers.
